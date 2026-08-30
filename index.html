@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הזמנה לבר מצווה - שלמה נ"י</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-blue: #1b365d;
+            --secondary-blue: #2c4a6f;
+            --light-blue-bg: #f3f7fb;
+            --gold-accent: #c5a059;
+            --gold-light: #e6ca94;
+            --gold-dark: #997530;
+            --text-dark: #12233c;
+            --text-muted: #4a5d78;
+            --card-shadow: 0 15px 35px rgba(27, 54, 93, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: #e9eff5;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(197, 160, 89, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(27, 54, 93, 0.08) 0%, transparent 40%);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 10px;
+        }
+
+        /* Container Card */
+        .invitation-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 480px;
+            border-radius: 24px;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+            padding: 40px 28px;
+            text-align: center;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        /* Watercolor & Gold Decorative Accents */
+        .decoration-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 160px;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.85;
+        }
+
+        .decoration-right svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Typography */
+        .bsd {
+            font-size: 14px;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .header-title {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 20px;
+            color: var(--secondary-blue);
+            font-weight: 500;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .invitation-text {
+            font-size: 17px;
+            color: var(--secondary-blue);
+            line-height: 1.6;
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        /* Main Name Section */
+        .name-container {
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .boy-name {
+            font-family: 'Rubik', sans-serif;
+            font-size: 46px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            letter-spacing: 1.5px;
+            line-height: 1.1;
+            text-shadow: 0 2px 4px rgba(27, 54, 93, 0.08);
+        }
+
+        .divider-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 18px auto;
+        }
+
+        .divider-line {
+            height: 1px;
+            width: 60px;
+            background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
+        }
+
+        .divider-diamond {
+            width: 7px;
+            height: 7px;
+            background-color: var(--gold-accent);
+            transform: rotate(45deg);
+        }
+
+        /* Date & Details Box */
+        .details-section {
+            background: linear-gradient(135deg, rgba(243, 247, 25b, 0.8) 0%, rgba(255, 255, 255, 0.9) 100%);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 16px;
+            padding: 20px 15px;
+            margin: 24px 0;
+        }
+
+        .event-date {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .event-date span {
+            display: block;
+            font-size: 17px;
+            font-family: 'Assistant', sans-serif;
+            font-weight: 600;
+            color: var(--gold-dark);
+            margin-top: 4px;
+        }
+
+        .venue-info {
+            font-size: 17px;
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .venue-name {
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .reception-time {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            background: rgba(197, 160, 89, 0.15);
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 20px;
+            margin-top: 6px;
+            border: 1px dashed var(--gold-accent);
+        }
+
+        /* Parents Section */
+        .parents-section {
+            margin: 25px 0 20px;
+        }
+
+        .parents-greeting {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .parents-names {
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        /* Grandparents Section */
+        .grandparents-section {
+            border-top: 1px solid rgba(197, 160, 89, 0.3);
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        .grandparents-title {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            line-height: 1.4;
+        }
+
+        .grandparents-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .grandparent-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .zatzal {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* Interactive Buttons (Digital Invitation Features) */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-waze {
+            background-color: var(--primary-blue);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(27, 54, 93, 0.2);
+        }
+
+        .btn-waze:hover {
+            background-color: #122543;
+            transform: translateY(-2px);
+        }
+
+        .btn-calendar {
+            background-color: #ffffff;
+            color: var(--primary-blue);
+            border: 1.5px solid var(--primary-blue);
+        }
+
+        .btn-calendar:hover {
+            background-color: var(--light-blue-bg);
+            transform: translateY(-2px);
+        }
+
+        .btn-rsvp {
+            background: linear-gradient(135deg, var(--gold-accent) 0%, var(--gold-dark) 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.3);
+        }
+
+        .btn-rsvp:hover {
+            opacity: 0.95;
+            transform: translateY(-2px);
+        }
+
+        /* RSVP Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(18, 35, 60, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            padding: 30px 24px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+
+        .modal h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d0d7de;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold-accent);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* Responsive refinements */
+        @media (max-width: 380px) {
+            .boy-name {
+                font-size: 38px;
+            }
+            .invitation-card {
+                padding: 30px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invitation-card">
+        <!-- Elegant Watercolor & Gold Waves Background Graphic -->
+        <div class="decoration-right">
+            <svg viewBox="0 0 200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Soft Watercolor Gradient Shape -->
+                <path d="M50 0C120 150 200 300 150 500C100 700 180 800 200 800H200V0H50Z" fill="url(#watercolor-grad)" opacity="0.6"/>
+                <!-- Gold Lines Art -->
+                <path d="M120 0C170 180 80 350 160 550C200 650 140 800 180 800" stroke="url(#gold-grad)" stroke-width="1.5" fill="none"/>
+                <path d="M140 0C190 200 100 380 180 580C220 680 160 800 200 800" stroke="url(#gold-grad)" stroke-width="2" fill="none"/>
+                <!-- Delicate Leaves -->
+                <path d="M135 120C145 110 160 115 165 125C155 135 140 130 135 120Z" fill="url(#gold-grad)"/>
+                <path d="M125 180C135 170 150 175 155 185C145 195 130 190 125 180Z" fill="url(#gold-grad)"/>
+                <path d="M150 420C160 410 175 415 180 425C170 435 155 430 150 420Z" fill="url(#gold-grad)"/>
+                <path d="M130 520C140 510 155 515 160 525C150 535 135 530 130 520Z" fill="url(#gold-grad)"/>
+
+                <defs>
+                    <linearGradient id="watercolor-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#bacddf" stop-opacity="0.5"/>
+                        <stop offset="50%" stop-color="#dce6f0" stop-opacity="0.3"/>
+                        <stop offset="100%" stop-color="#f3f7fb" stop-opacity="0.1"/>
+                    </linearGradient>
+                    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#e6ca94"/>
+                        <stop offset="50%" stop-color="#c5a059"/>
+                        <stop offset="100%" stop-color="#997530"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <div class="card-content">
+            <!-- בס"ד -->
+            <div class="bsd">בס"ד</div>
+
+            <!-- Header -->
+            <div class="header-title">בשבח והודיה לבורא עולם</div>
+            <div class="invitation-text">
+                הננו מתכבדים להזמינכם להשתתף<br>
+                בשמחת הבר מצוה של בננו היקר
+            </div>
+
+            <!-- Name -->
+            <div class="name-container">
+                <h1 class="boy-name">שלמה נ"י</h1>
+                <div class="divider-ornament">
+                    <div class="divider-line"></div>
+                    <div class="divider-diamond"></div>
+                    <div class="divider-diamond"></div>
+                    <div class="divider-diamond"></div>
+                    <div class="divider-line"></div>
+                </div>
+            </div>
+
+            <!-- Event Details -->
+            <div class="details-section">
+                <div class="event-date">
+                    שתתקיים בס"ד ביום חמישי<br>
+                    <span>ו' תשרי תשפ"ז (17.09.2026)</span>
+                </div>
+                
+                <div class="venue-info">
+                    באולם <span class="venue-name">"Mireille"</span> שע"י מוסדות לב אחד<br>
+                    מול שערי תשובה 31 מודיעין עילית
+                </div>
+
+                <div class="reception-time">
+                    קבלת קהל בשעת 22:00 בערב
+                </div>
+            </div>
+
+            <!-- Parents -->
+            <div class="parents-section">
+                <div class="parents-greeting">נשמח לראותכם משתתפים בשמחתנו</div>
+                <div class="parents-names">יהושע בהר ורעייתו</div>
+            </div>
+
+            <!-- Grandparents -->
+            <div class="grandparents-section">
+                <div class="grandparents-title">
+                    גם אנו מתכבדים להזמינכם לשמחת<br>
+                    הבר מצוה של נכדנו היקר
+                </div>
+                
+                <div class="divider-ornament" style="margin: 10px auto;">
+                    <div class="divider-line" style="width: 30px;"></div>
+                    <div class="divider-diamond" style="width: 5px; height: 5px;"></div>
+                    <div class="divider-line" style="width: 30px;"></div>
+                </div>
+
+                <div class="grandparents-list">
+                    <div class="grandparent-item">
+                        <span>מרת רינה בן שימול</span>
+                        <span class="zatzal">[א"ח לרבי שמעון זצ"ל]</span>
+                    </div>
+                    <div class="grandparent-item">
+                        <span>רבי מרדכי ברוך ורעייתו</span>
+                    </div>
+                    <div class="grandparent-item">
+                        <span>רבי דניאל בהר ורעייתו</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons for Digital Use -->
+            <div class="action-buttons">
+                <!-- Waze Navigation Button -->
+                <a class="btn btn-waze" href="https://waze.com/ul?q=%D7%A9%D7%A2%D7%A8%D7%99%20%D7%AA%D7%A9%D7%95%D7%91%D7%94%2031%20%D7%9E%D7%95%D7%93%D7%99%D7%A2%D7%99%D7%9F%20%D7%A2%D7%99%D7%9C%D7%99%D7%AA" target="_blank">
+                    <i class="fa-solid fa-location-dot"></i>
+                    ניווט למיקום ב-Waze
+                </a>
+
+                <!-- Calendar Button -->
+                <a class="btn btn-calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=%D7%91%D7%A8%20%D7%9E%D7%A6%D7%95%D7%95%D7%94%20%D7%9C%D7%A9%D7%9C%D7%9E%D7%94%20%D7%A0%22%D7%99&dates=20260917T190000Z/20260917T220000Z&details=%D7%A9%D7%9E%D7%97%D7%AA%20%D7%91%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%95%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%94%20%D7%A0%22%D7%99&location=%D7%A9%D7%A2%D7%A8%D7%99%20%D7%AA%D7%A9%D7%95%D7%91%D7%94%2031,%20%D7%9E%D7%95%D7%93%D7%99%D7%A2%D7%99%D7%9F%20%D7%A2%D7%99%D7%9C%D7%99%D7%AA" target="_blank">
+                    <i class="fa-regular fa-calendar-plus"></i>
+                    הוספה ליומן Google
+                </a>
+
+                <!-- RSVP Modal Trigger -->
+                <button class="btn btn-rsvp" onclick="openModal()">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                    אישור הגעה (RSVP)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RSVP Modal -->
+    <div class="modal" id="rsvpModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <h3>אישור הגעה</h3>
+            <form onsubmit="handleRSVP(event)">
+                <div class="form-group">
+                    <label>שם מלא:</label>
+                    <input type="text" class="form-control" required placeholder="הכנס שם מלא">
+                </div>
+                <div class="form-group">
+                    <label>סטטוס הגעה:</label>
+                    <select class="form-control" required>
+                        <option value="yes">מגיע/ה בשמחה</option>
+                        <option value="maybe">אולי</option>
+                        <option value="no">לצערי לא אוכל להגיע</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>מספר משתתפים:</label>
+                    <input type="number" class="form-control" min="1" max="10" value="1">
+                </div>
+                <button type="submit" class="submit-btn">שלח אישור</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('rsvpModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('rsvpModal').classList.remove('active');
+        }
+
+        function handleRSVP(event) {
+            event.preventDefault();
+            alert('תודה רבה! אישור ההגעה התקבל בהצלחה.');
+            closeModal();
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('rsvpModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
